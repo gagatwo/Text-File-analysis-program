@@ -8,10 +8,10 @@ Text file 분석 프로그램
 Ex) 입력된 텍스트 -> 주석이 제외된 텍스트 -> 결과물
 abc/*def*/ghi -> abc ghi -> newline: 0, word: 2, character: 7
 
-abc/*def/*ghi*/jkl*/mnon -> abcsjkl*/mno -> newline: 0, word: 2, character: 12
+abc/*def/*ghi*/jkl*/mno -> abcsjkl*/mno -> newline: 0, word: 2, character: 12
 
 abc//def/*ghi  -> abc  -> newline: 1, word: 2, character: 9
-*/jkl                  */jkl
+*/jkl             */jkl
 
 구현 방식 : 텍스트 파일의 한 글자씩 읽으며 일반적인 글자인지, 공백인지, /인지 등의 case를 나누어 조건문으로 구현
 
