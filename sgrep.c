@@ -9,8 +9,7 @@
 #define FALSE 0
 #define TRUE  1
 
-void
-PrintUsage(const char* argv0)
+void PrintUsage(const char* argv0)
 {
   const static char *fmt =
 	  "Simple Grep (sgrep) Usage:\n"
@@ -18,16 +17,15 @@ PrintUsage(const char* argv0)
 
   printf(fmt, argv0);
 }
-/*-------------------------------------------------------------------*/
 
-int
-SearchPattern(const char *pattern)
+/*-------------------------------------------------------------------*/
+//Function to search a word in a text file
+int SearchPattern(const char *pattern)
 {
   char buf[MAX_STR_LEN + 2];
 
-  /*
-   *  TODO: check if pattern is too long
-   */
+  
+  //Check if pattern is too long
   if(StrGetLength(pattern)>1023)//compare pattern length with 1023
   {
     fprintf(stderr, "Error: pattern is too long\n");
@@ -100,8 +98,7 @@ SearchPattern(const char *pattern)
   return TRUE;
 }
 /*-------------------------------------------------------------------*/
-int
-main(const int argc, const char *argv[])
+int main(const int argc, const char *argv[])
 {
   /* Do argument check and parsing */
   if (argc < 2) {
