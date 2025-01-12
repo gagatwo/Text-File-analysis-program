@@ -41,20 +41,20 @@ int SearchPattern(const char *pattern)
       return FALSE;
     } 
     
-    const char* a=buf;
-    const char* b=buf;
+    const char* read=buf;
+    const char* temp=buf;
     while(*pattern == '*')//when * is first of pattern, it is not important
         pattern++;
     
-    while(*a)
+    while(*read)
     {
-      if(*pattern == *a)//when first char is same
+      if(*pattern == *read)//when first char is same
       {
         const char* x=pattern;
-        const char* y=a;
+        const char* y=read;
         x++;
         y++;
-        while(*pattern)
+        while(*x)
         {
 
           if(*x=='*')// * is don't care about what is on buf
@@ -71,9 +71,7 @@ int SearchPattern(const char *pattern)
               }
               y++;
             }     
-            if(*x=='\0' && *y=='\0')
-              break;
-            else if(*y=='\0' && *x!='\0')//consider case that no more same char on buf because buf is end 
+            if(*y=='\0')
               break;
           }
 
@@ -88,11 +86,11 @@ int SearchPattern(const char *pattern)
         if(*x=='\0')//x pointing '\0' means loop reapeated until end of pattern. It means there is same pattern in buf
         {
 
-          printf("%s",b);//Then, print buf
+          printf("%s",temp);//Then, print buf
           break;
         }
       }
-      a++;
+      read++;
     }
   }
   return TRUE;
