@@ -69,6 +69,8 @@ int SearchPattern(const char *pattern)
                 y++;
                 break;
               }
+	      else if(*y == ' ')
+                break;
               y++;
             }     
             if(*y=='\0')
